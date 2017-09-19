@@ -1,0 +1,24 @@
+{
+  "path": "/apps/hive/warehouse/vote_record/*",
+  "defaultfs": "hdfs://sdc2.sefon.com:8020",
+  "filetype": "orc",
+  "fieldelimiter": ",",
+  "columns": [
+    {
+      "name": "id",
+      "type": "long"
+    },
+    {
+      "name": "inc_datetime",
+      "type": "string"
+    },
+    {
+      "name": "random_id",
+      "type": "string"
+    },
+    {
+      "name": "random_string",
+      "type": "string"
+    }
+  ]
+}

@@ -1,0 +1,75 @@
+{
+    "job": {
+        "content": [
+            {
+                "reader": {
+                    "name": "mysqlreader",
+                    "parameter": {
+                        "column": [
+                            'id',
+                            'user_id',
+                            'vote_id',
+                            'group_id',
+                            'create_time'
+                        ],
+                        "connection": [
+                            {
+                                "jdbcUrl": [
+                                    'jdbc:mysql://amb05.sefonsoft.com:3306/db'
+                                ],
+                                "table": [
+                                    'vote_record'
+                                ]
+                            }
+                        ],
+                        "password": "Dbdb123_",
+                        "username": "db",
+                        "where": ""
+                    }
+                },
+                "writer": {
+                    "name": "hdfswriter",
+                    "parameter": {
+                        "column": [
+                            {
+                                "name": "id",
+                                "type": "BIGINT"
+                            },
+                            {
+                                "name": "user_id",
+                                "type": "string"
+                            },
+                            {
+                                "name": "vote_id",
+                                "type": "BIGINT"
+                            },
+                            {
+                                "name": "group_id",
+                                "type": "BIGINT"
+                            },
+                            {
+                                "name": "create_time",
+                                "type": "TIMESTAMP"
+                            }
+                        ],
+                        "compress": "NONE",
+                        "defaultFS": "hdfs://amb05.sefonsoft.com:8020",
+                        "fieldDelimiter": "\t",
+                        "fileName": "data_10000",
+                        "fileType": "orc",
+                        "path": "/apps/hive/warehouse/vote_record",
+                        "writeMode": "append",
+                        "haveKerberos": "true",
+                        "kerberosKeytabFilePath": "/root/keytab/dev.keytab",
+                        "kerberosPrincipal": "dev1@SEFON.COM"
+                    }
+                }
+            }
+        ],
+        "setting": {
+            "speed": {
+                "channel": "2"
+            }
+        }
+    }
+}
